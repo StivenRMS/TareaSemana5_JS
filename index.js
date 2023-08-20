@@ -168,3 +168,126 @@ function imprimeArreglo(arreglo) {
   });
   
 
+//Ejercicio 6
+function numeroDeCaracteres(caracter, string){
+    let contador = 0;
+    for(let i = 0; i < string.length; i++){
+        if(string[i] == caracter){
+            contador++;
+        }
+    }
+    return contador;
+}
+
+const caracter = document.getElementById("caracteres");
+const string = document.getElementById("string");
+const calcular6 = document.getElementById("calcular6");
+const Ex6Resp = document.getElementById("Ex6Resp");
+
+calcular6.addEventListener("click", () => {
+    event.preventDefault();
+    const caracterValue = caracter.value;
+    const stringValue = string.value;
+
+    Ex6Resp.innerText = numeroDeCaracteres(caracterValue, stringValue);
+
+    // Limpiar los campos
+    caracter.value = "";
+    string.value = "";
+} );
+
+//Ejercicio 7
+function sumarArreglo(arreglo){
+    let suma = 0;
+    for(let i = 0; i < arreglo.length; i++){
+        suma += arreglo[i];
+    }
+    return suma;
+}
+
+const arreglo = document.getElementById("arreglo2");
+const calcular7 = document.getElementById("calcular7");
+const Ex7Resp = document.getElementById("Ex7Resp");
+
+calcular7.addEventListener("click", () => {
+    event.preventDefault();
+    const arregloValue = arreglo.value.split(",").map(Number);
+
+    //verificar si la entrada es un numero y si es arreglo
+    if(arregloValue.some(isNaN) || !Array.isArray(arregloValue)){
+        Ex7Resp.innerText = "Por favor, ingresa un arreglo válido.";
+        arreglo.value = "";
+        return;
+    }
+
+    Ex7Resp.innerText = sumarArreglo(arregloValue);
+
+    // Limpiar los campos
+    arreglo.value = "";
+} );
+
+
+//Ejercicio 8
+function multiplicarArreglo(arreglo){
+    let producto = 1;
+    for(let i = 0; i < arreglo.length; i++){
+        producto *= arreglo[i];
+    }
+    return producto;
+}
+
+const arreglo3 = document.getElementById("arreglo3");
+const calcular8 = document.getElementById("calcular8");
+const Ex8Resp = document.getElementById("Ex8Resp");
+
+calcular8.addEventListener("click", () => {
+    event.preventDefault();
+    const arregloValue = arreglo3.value.split(",").map(Number);
+
+    //verificar si la entrada es un numero y si es arreglo
+    if(arregloValue.some(isNaN) || !Array.isArray(arregloValue)){
+        Ex8Resp.innerText = "Por favor, ingresa un arreglo válido.";
+        arreglo3.value = "";
+        return;
+    }
+
+    Ex8Resp.innerText = multiplicarArreglo(arregloValue);
+
+    // Limpiar los campos
+    arreglo3.value = "";
+} );
+
+//Ejercicio 9
+function sumarRango(inicio, fin){
+    let suma = 0;
+    for(let i = inicio; i <= fin; i++){
+        suma += i;
+    }
+    return suma;
+}
+
+const inicio = document.getElementById("rangoInicial");
+const fin = document.getElementById("rangoFinal");
+const calcular9 = document.getElementById("calcular9");
+const Ex9Resp = document.getElementById("Ex9Resp");
+
+calcular9.addEventListener("click", () => {
+    event.preventDefault();
+    const inicioValue = parseInt(inicio.value);
+    const finValue = parseInt(fin.value);
+
+    //verificar si la entrada es un numero
+    if(isNaN(inicioValue) || isNaN(finValue)){
+        Ex9Resp.innerText = "Por favor, ingresa un número válido.";
+        inicio.value = "";
+        fin.value = "";
+        return;
+    }
+
+    Ex9Resp.innerText = sumarRango(inicioValue, finValue);
+
+    // Limpiar los campos
+    inicio.value = "";
+    fin.value = "";
+} );
+
