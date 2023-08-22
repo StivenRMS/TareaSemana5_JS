@@ -7,7 +7,7 @@ const resultado = document.getElementById("Ex1Resp");
 calcular.addEventListener("click", () => {
   event.preventDefault();
   const pesoValue = parseFloat(peso.value);
-  const alturaValue = parseFloat(altura.value);
+  const alturaValue = parseFloat(altura.value)/100;
   const imc = pesoValue / Math.pow(alturaValue, 2);
 
   // Verificar si los valores ingresados son números válidos
