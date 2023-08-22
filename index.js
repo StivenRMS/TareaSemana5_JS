@@ -291,3 +291,61 @@ calcular9.addEventListener("click", () => {
     fin.value = "";
 } );
 
+//Ejercicio 10
+//Encontrar el numero maximo del arreglo
+function maximoArreglo(arreglo){
+    let maximo = arreglo[0];
+    for(let i = 1; i < arreglo.length; i++){
+        if(arreglo[i] > maximo){
+            maximo = arreglo[i];
+        }
+    }
+    return maximo;
+}
+
+const arreglo4 = document.getElementById("arreglo5");
+const calcular10 = document.getElementById("calcular10");
+const Ex10Resp = document.getElementById("Ex10Resp");
+
+calcular10.addEventListener("click", () => {
+    event.preventDefault();
+    const arregloValue = arreglo4.value.split(",").map(Number);
+
+    //verificar si la entrada es un numero y si es arreglo
+    if(arregloValue.some(isNaN) || !Array.isArray(arregloValue)){
+        Ex10Resp.innerText = "Por favor, ingresa un arreglo válido.";
+        arreglo4.value = "";
+        return;
+    }
+
+    Ex10Resp.innerText = maximoArreglo(arregloValue);
+
+    // Limpiar los campos
+    arreglo4.value = "";
+} );
+
+//Ejercicio 10 Utilizando Max()
+function maximoArreglo2(arreglo){
+    return Math.max(...arreglo);
+} 
+
+const arreglo5 = document.getElementById("arreglo6");
+const calcular11 = document.getElementById("calcular11");
+const Ex11Resp = document.getElementById("Ex11Resp");
+
+calcular11.addEventListener("click", () => {
+    event.preventDefault();
+    const arregloValue = arreglo5.value.split(",").map(Number);
+
+    //verificar si la entrada es un numero y si es arreglo
+    if(arregloValue.some(isNaN) || !Array.isArray(arregloValue)){
+        Ex11Resp.innerText = "Por favor, ingresa un arreglo válido.";
+        arreglo5.value = "";
+        return;
+    }
+
+    Ex11Resp.innerText = maximoArreglo2(arregloValue);
+
+    // Limpiar los campos
+    arreglo5.value = "";
+} );
